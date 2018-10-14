@@ -26,7 +26,7 @@ body, html{
 			align-items:center;
 			justify-content:center;
 			width:20vw;
-			font-size:30vh;
+			font-size:40vh;
 			background-color:#1DA1F2;
 			color:white;
 			right:0%;
@@ -35,7 +35,6 @@ body, html{
 			opacity:0;
 		}
 		.text{
-			background:white;
 			position:absolute;
 			right:calc(0% - 30px);
 			padding:15px;
@@ -43,7 +42,7 @@ body, html{
 			align-items:center;
 			justify-content:flex-start;
 			width:0vw;
-			font-size:20vh;
+			font-size:30vh;
 			letter-spacing:2px;
 			overflow:hidden;
 			animation:expand-text 600ms 1700ms cubic-bezier(0.73,-0.11, 0.23, 0.83), shrink-text 600ms 6900ms cubic-bezier(0.19, 1, 0.22, 1);

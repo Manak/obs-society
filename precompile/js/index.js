@@ -2,14 +2,26 @@ import '../css/index.scss';
 const dommy = require('dommy.js');
 
 let animationList = [];
+let textStyle = ``;
 window.onload = function(){
-	const OVERALL_WAIT = 300000;
+	const OVERALL_WAIT = 150000;
 
 	let twitterUsername = getParameterByName('twitter');
 	let ytUsername = getParameterByName('youtube');
 	let igUsername = getParameterByName('instagram');
 	let scUsername = getParameterByName('snapchat');
+	let twitchUsername = getParameterByName('twitch');
+
+	let textColor = getParameterByName('textcolor');
+	let bgColor = getParameterByName('background');
+	if(textColor){
+		textStyle += `color:#${textColor};`;
+	}
+	if(bgColor){
+		textStyle += `background:#${bgColor};`;
+	}
 	
+
 	if(twitterUsername){
 		animationList.push([twitterUsername,'twitter', '#1DA1F2']);
 	}
@@ -22,6 +34,10 @@ window.onload = function(){
 	if(scUsername){
 		animationList.push([scUsername,'snapchat', '#000000']);
 	}	
+	if(twitchUsername){
+		animationList.push([twitchUsername,'twitch', '#6441a5']);
+	}
+
 	animationEndedHandler({animationName:'pop-out'});
 
 	setInterval(() => {
@@ -37,6 +53,9 @@ window.onload = function(){
 		if(scUsername){
 			animationList.push([scUsername,'snapchat', '#000000']);
 		}	
+		if(twitchUsername){
+			animationList.push([twitchUsername,'twitch', '#6441a5']);
+		}
 	}, OVERALL_WAIT);
 }
 
@@ -47,7 +66,7 @@ function createSocietyContainer(username, icon, background) {
 		children:[
 		{
 			tag:'div',
-			attributes:{'class':'icon', 'style':`background:${background};`},
+			attributes:{'class':'icon'},
 			children:[
 			{
 				tag:'i',
@@ -60,7 +79,7 @@ function createSocietyContainer(username, icon, background) {
 		},
 		{
 			tag:'div',
-			attributes:{'class':'text'},
+			attributes:{'class':'text','style':textStyle},
 			children:[
 			{
 				type:'text',

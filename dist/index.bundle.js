@@ -72,17 +72,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_index_scss__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_index_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__css_index_scss__);
 
-const dommy = __webpack_require__(6);
+const dommy = __webpack_require__(2);
 
 let animationList = [];
+let textStyle = ``;
 window.onload = function(){
-	const OVERALL_WAIT = 300000;
+	const OVERALL_WAIT = 150000;
 
 	let twitterUsername = getParameterByName('twitter');
 	let ytUsername = getParameterByName('youtube');
 	let igUsername = getParameterByName('instagram');
 	let scUsername = getParameterByName('snapchat');
+	let twitchUsername = getParameterByName('twitch');
+
+	let textColor = getParameterByName('textcolor');
+	let bgColor = getParameterByName('background');
+	if(textColor){
+		textStyle += `color:#${textColor};`;
+	}
+	if(bgColor){
+		textStyle += `background:#${bgColor};`;
+	}
 	
+
 	if(twitterUsername){
 		animationList.push([twitterUsername,'twitter', '#1DA1F2']);
 	}
@@ -95,6 +107,10 @@ window.onload = function(){
 	if(scUsername){
 		animationList.push([scUsername,'snapchat', '#000000']);
 	}	
+	if(twitchUsername){
+		animationList.push([twitchUsername,'twitch', '#6441a5']);
+	}
+
 	animationEndedHandler({animationName:'pop-out'});
 
 	setInterval(() => {
@@ -110,6 +126,9 @@ window.onload = function(){
 		if(scUsername){
 			animationList.push([scUsername,'snapchat', '#000000']);
 		}	
+		if(twitchUsername){
+			animationList.push([twitchUsername,'twitch', '#6441a5']);
+		}
 	}, OVERALL_WAIT);
 }
 
@@ -120,7 +139,7 @@ function createSocietyContainer(username, icon, background) {
 		children:[
 		{
 			tag:'div',
-			attributes:{'class':'icon', 'style':`background:${background};`},
+			attributes:{'class':'icon'},
 			children:[
 			{
 				tag:'i',
@@ -133,7 +152,7 @@ function createSocietyContainer(username, icon, background) {
 		},
 		{
 			tag:'div',
-			attributes:{'class':'text'},
+			attributes:{'class':'text','style':textStyle},
 			children:[
 			{
 				type:'text',
@@ -177,11 +196,7 @@ function getParameterByName(name, url) {
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
