@@ -139,7 +139,7 @@ function createSocietyContainer(username, icon, background) {
 		children:[
 		{
 			tag:'div',
-			attributes:{'class':'icon'},
+			attributes:{'class':'icon', 'style':`background:${background}`},
 			children:[
 			{
 				tag:'i',
