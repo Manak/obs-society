@@ -4,7 +4,7 @@ const dommy = require('dommy.js');
 let animationList = [];
 let textStyle = ``;
 window.onload = function(){
-	const OVERALL_WAIT = 150000;
+	const OVERALL_WAIT = 200000;
 
 	let twitterUsername = getParameterByName('twitter');
 	let ytUsername = getParameterByName('youtube');
@@ -56,6 +56,7 @@ window.onload = function(){
 		if(twitchUsername){
 			animationList.push([twitchUsername,'twitch', '#6441a5']);
 		}
+		animationEndedHandler({animationName:'pop-out'});
 	}, OVERALL_WAIT);
 }
 
